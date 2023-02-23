@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;900&family=Roboto:ital,wght@1,100&display=swap');
+
+:root {
+    /* CATEGORIES */
+    --reaction: hsl(0, 100%, 67%);
+    --memory: hsl(39, 100%, 56%);
+    --verbal: hsl(166, 100%, 37%);
+    --visual: hsl(234, 85%, 45%);
+
+    /* BACKGROUND */
+    --bg-light: hsl(252, 100%, 67%); 
+    --bg-dark: hsl(241, 81%, 54%);
+    --bg-gradient: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+
+    /* CIRCLE */
+    --circle-light: hsl(256, 72%, 46%);
+    --circle-dark: hsla(241, 72%, 46%, 0);
+    --circle-gradient: linear-gradient(hsl(256, 72%, 46%), hsla(241, 72%, 46%, 0));
+
+    /* NEUTRAL */
+    --white: hsl(0, 0%, 100%);
+    --ligthblue: hsl(221, 100%, 96%);
+    --lavender: hsl(241, 100%, 89%);
+    --lightgray: hsla(224, 30%, 27%, 0.1);
+    --gray: hsla(224, 30%, 27%, 0.3);
+    --darkgray: hsl(224, 30%, 27%);
+}
+
+html, body {
+    height: 100%;
+}
+
+h1, h2, p {
+    overflow-wrap: break-word;
+}
+
+img, picture, svg {
+    display: block;
+    max-width: 100%;
+}
+
+button {
+    font: inherit;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Hanken Grotesk';
+    font-size: 1.125rem;
+}
+
+main {
+    max-width: min(38em, 100vw);
+    background-color: var(--white);
+}
+
+.result {
+    background: var(--bg-gradient);
+    color: var(--lavender);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1.2rem 2.125em 2.2em 2.125em;
+    gap: 1em;
+    border-radius: 0 0 1.5rem 1.5rem;
+}
+
+.result > h2 {
+    font-weight: 700;
+    font-size: 1.125rem;
+}
+
+.result__questions {
+    width: 9em;
+    height: 9em;
+    background: var(--circle-gradient);
+    border-radius: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.result__questions__correct {
+    font-weight: 700;
+    font-size: 3.5rem;
+    color: var(--white);
+}
+
+.result__comment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2em;
+}
+
+.result__comment h1 {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.result__comment p {
+    text-align: center;
+}
+
+/* SUMMARY */
+.summary {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+    padding: 1em 1.5em 1.5em 1.5em;
+}
+
+.summary h2 {
+    font-size: 1.2rem;
+}
+
+.categories {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+}
+.category {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6em;
+    width: 100%;
+    height: 3.2em;
+    border-radius: 0.6rem;    
+}
+
+.category__name {
+    display: flex;
+    gap: 0.5em;
+}
+
+.category__questions {
+    display: flex;
+    gap: 0.5em;
+}
+
+.category__questions__total{
+    color: var(--gray);
+}
+
+/* REACTION */
+.category__reaction {
+    background-color: hsla(0, 100%, 67%, 0.1);
+}
+
+.category__reaction > .category__name > p {
+    color: var(--reaction);
+}
+
+/* MEMORY */
+.category__memory {
+    background-color:  hsl(39, 100%, 56%, 0.1);
+}
+
+.category__memory > .category__name > p {
+    color: var(--memory);
+}
+
+/* VERBAL */
+.category__verbal {
+    background-color: hsl(166, 100%, 37%, 0.1);
+}
+
+.category__verbal > .category__name > p {
+    color: var(--verbal);
+}
+
+/* VISUAL */
+.category__visual {
+    background-color: hsl(234, 85%, 45%, 0.1);
+}
+
+.category__visual > .category__name > p {
+    color: var(--visual);
+}
+
+/* BUTTON */
+.summary__button {
+    width: 100%;
+    height: 3em;
+    background-color: var(--darkgray);
+    color: var(--white);
+    border-radius: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all ease-in-out 0.5s;
+}
+
+.summary__button:hover {
+    background: var(--bg-gradient);
+    cursor: pointer;
+    transition: all ease-in-out 0.6s;
+}
+
+@media screen and (min-width: 600px) {
+    body {
+        display: grid;
+        place-content: center;
+        background-image: linear-gradient(90deg, hsl(0, 0%, 100%), hsl(241, 100%, 89%));
+        background-size: 500%;
+        background-position: left;
+        animation: bg-animation 20s infinite alternate; 
+    }
+
+    @keyframes bg-animation {
+        0% {background-position: left}
+        100% {background-position: right}
+    }
+
+    main {
+        display: grid;
+        grid-template-columns:  1fr 1fr;
+        border-radius: 1.5rem;
+        box-shadow: 5px 20px 50px -5px hsla(241, 81%, 54%, 0.2);
+        margin: 2em;
+    }
+
+    .result {
+        border-radius: 1.5rem;
+        padding: 2em;
+    }
+
+    .summary {
+        border-radius: 0 1.5rem 1.5rem 0;
+        overflow: hidden;
+    }
+}
